@@ -14,13 +14,37 @@ body, html {
 
 .horizontal-line { 
     margin: 5px 0; 
-    border-bottom: solid 1px #c3c3c3; 
+    border-bottom: solid 1px #B388FF; 
 }
+
 .height{
     height: 100%;
 }
 
 
+.bg-c1{
+    background-color: #FFFF8D /* rgba(255, 255, 0, 0.5) */;
+}
+
+.bg-c2{
+    background-color: #B9F6CA /* rgba(0, 255, 0, 0.5) */;
+}
+
+.bg-c3{
+    background-color: #FFD180 /* rgba(255, 205, 100, 0.75) */;
+}
+
+.bg-c4{
+    background-color: #A1887F /* rgba(255, 155, 50, 0.6) */;
+}
+
+.bg-c5{
+    background-color:#8D6E63 /* rgba(205, 100, 0, 0.6) */;
+}
+
+.bg-c6{
+    background-color: #FF8A80 /* rgba(255, 0, 0, 0.5) */;
+}
 
 .flex {
     display: flex; 
@@ -44,8 +68,6 @@ body, html {
     margin-right: auto; 
 
 }
-
-
 
 .menu {
 
@@ -161,11 +183,13 @@ nav ul .p-relative:hover ul{
 
 .table {
     width: 100%;
+    border-collapse: collapse;
 }
 
 .table th,
 .table td {
-    text-align: left;
+    text-align: center;
+    border: 2px solid #D1C4E9;
 }
 
 .page iframe {

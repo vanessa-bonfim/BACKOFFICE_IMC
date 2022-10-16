@@ -1,22 +1,23 @@
 <?php
 
-$query = 'SELECT * FROM cadastros';
+$query = 'SELECT * FROM calculo_imc ORDER BY imc DESC';
 $sql = $pdo->prepare($query);
 
 if ($sql->execute()) {
-    $cadastros = $sql->fetchAll(PDO::FETCH_ASSOC);
+    $calculos = $sql->fetchAll(PDO::FETCH_ASSOC);
 } else {
-    $cadastros = [];
+    $calculos = [];
 }
 
-function IMC($height, $weight)
+/* function IMC($height, $weight)
 {
     $height = str_replace(',', '.', $height);
     $height = $height * $height;
     $r = $weight / $height;
     $result = number_format($r, 2);
     return $result;
-}
+} */
+
 ?>
 
 <div class="page">
@@ -24,52 +25,38 @@ function IMC($height, $weight)
     <div class="horizontal-line"></div>
     <table class="table">
         <tr>
-            <th>Id</th>
-            <th>Nome</th>
+            <th>ID</th>
+            <th>NOME</th>
             <th>IMC</th>
-            <th>Classificação</th>
+            <th>CLASSIFICAÇÃO</th>
         </tr>
-        <?php foreach ($cadastros as $cadastro) : ?>
-            <tr>
-                <td><?php echo $cadastro['id'] ?></td>
-                <td><?php echo $cadastro['name'] ?></td>
-                <td><?php echo IMC($cadastro['height'], $cadastro['weight']) ?></td>
-                <td> <?php if (IMC($cadastro['height'], $cadastro['weight']) >= 40.00) {
-                            echo '<p>Obesidade Grau III ou Mórbida</p>';                        
-                        } elseif (IMC($cadastro['height'], $cadastro['weight']) > 35 && IMC($cadastro['height'], $cadastro['weight']) < 39.99) {
-                            echo '<p>Obesidade Grau II</p>';
-                        } elseif (IMC($cadastro['height'], $cadastro['weight']) > 30 && IMC($cadastro['height'], $cadastro['weight']) < 34.99) {
-                            echo '<p>Obesidade Grau I</p>';
-                        } elseif (IMC($cadastro['height'], $cadastro['weight']) > 25 && IMC($cadastro['height'], $cadastro['weight']) < 29.99) {
-                            echo '<p>Sobrepeso</p>';
-                        } elseif (IMC($cadastro['height'], $cadastro['weight']) > 18.50 && IMC($cadastro['height'], $cadastro['weight']) < 24.99) {
-                            echo '<p>Peso Normal</p>';
-                        } elseif (IMC($cadastro['height'], $cadastro['weight']) < 18.50) {
-                            echo '<p>Abaixo do Peso</p>';
-                        }
-                        ?>
-                </td>
-
+        <?php foreach ($calculos as $calculo) : ?>
+            <?php if ($calculo['imc'] >= 40.00) {
+                $msg = 'Obesidade Grau III';
+                $bg_c = 'bg-c6';
+            } elseif ($calculo['imc'] > 35 && $calculo['imc'] < 39.99) {
+                $msg = 'Obesidade Grau II';
+                $bg_c =  'bg-c5';
+            } elseif ($calculo['imc'] > 30 && $calculo['imc'] < 34.99) {
+                $msg = 'Obesidade Grau I';
+                $bg_c =  'bg-c4';
+            } elseif ($calculo['imc'] > 25 && $calculo['imc'] < 29.99) {
+                $msg = 'Sobrepeso';
+                $bg_c =  'bg-c3';
+            } elseif ($calculo['imc'] > 18.50 && $calculo['imc'] < 24.99) {
+                $msg = 'Peso Normal';
+                $bg_c =  'bg-c2';
+            } elseif ($calculo['imc'] < 18.50) {
+                $msg = 'Abaixo do Peso';
+                $bg_c =  'bg-c1';
+            }
+            ?>
+            <tr class="<?php echo $bg_c; ?> ">
+                <td><?php echo $calculo['id'] ?></td>
+                <td><?php echo $calculo['name'] ?></td>
+                <td><?php echo number_format($calculo['imc'], 1) ?></td>
+                <td><?php echo $msg; ?></td>
             </tr>
         <?php endforeach ?>
     </table>
 </div>
-<script>
-
-    const elementP = document.querySelectorAll('p');
-    const elementTd = document.querySelectorAll('td');
-
-    if (elementP.innerText == "Obesidade Grau III ou Mórbida") {
-        
-    } else if(elementP.innerText == "Obesidade Grau II") {
-        
-    } else if(elementP.innerText == "Obesidade Grau II") {
-        
-    } else if(elementP.innerText == "Sobrepeso") {
-        
-    } else if(elementP.innerText == "Peso Normal") {
-        
-    } else if(elementP.innerText == "Abaixo do peso") {
-        
-    }
-</script>

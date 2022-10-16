@@ -1,5 +1,4 @@
-<div class="page">
-    
+<div class="page">    
     <form action="<?php echo url_generate(['route' => 'authenticate']); ?>" method="POST" class="form form-login">
         <h2>Área Reservada</h2>
         <div class="horizontal-line"></div>

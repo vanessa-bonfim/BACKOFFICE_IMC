@@ -28,12 +28,7 @@ if (!empty($_GET['area']) && $_GET['area'] == 'admin') {
 }
 
 
-switch ($page) { 
-
-    case 'dashboard': 
-        require_once('controllers/dashboard.php');
-        break;
-    
+switch ($page) {      
     case 'authenticate': 
         require_once('controllers/authenticate.php');
         break;

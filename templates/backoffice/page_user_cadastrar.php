@@ -1,5 +1,4 @@
 <?php
-
 if (
     $_SERVER['REQUEST_METHOD'] == 'POST' &&
     (empty($_POST['name']) ||
@@ -29,11 +28,8 @@ if (!empty($_POST['name']) && !empty($_POST['age']) && !empty($_POST['height']) 
 }
 
 ?>
-
-<div class="page">
-    
+<div class="page">    
     <form class="form" method="POST" action="<?php echo url_generate(['route' => 'user_cadastrar']); ?>">
-
         <div class="form-group">
             <input placeholder="Nome" type="text" name="name" require>
         </div>

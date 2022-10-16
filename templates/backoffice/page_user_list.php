@@ -17,10 +17,10 @@ if ($sql->execute()) {
     <table class="table">
         <tr>
             <th>Id</th>
-            <th>Nome</th>
-            <th>idade</th>
-            <th>Altura</th>
-            <th>Peso</th>
+            <th>NOME</th>
+            <th>IDADE</th>
+            <th>ALTURA</th>
+            <th>PESO</th>
         </tr>
         <?php foreach ($cadastros as $cadastro) : ?>
         <tr>
