@@ -171,3 +171,9 @@ nav ul .p-relative:hover ul{
     width: 100%;
     min-height: 650px;
 }
+
+
+.logo {
+    color: #EDE7F6;
+    text-align: center;
+}

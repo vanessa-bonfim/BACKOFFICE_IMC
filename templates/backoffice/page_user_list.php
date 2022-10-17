@@ -23,14 +23,14 @@ if ($sql->execute()) {
             <th>PESO</th>
         </tr>
         <?php foreach ($cadastros as $cadastro) : ?>
-        <tr>
-            <td><?php echo $cadastro['id'] ?></td>
-            <td><?php echo $cadastro['name'] ?></td>
-            <td><?php echo $cadastro['age'] ?></td>
-            <td><?php echo $cadastro['height']?>m</td>
-            <td><?php echo $cadastro['weight']?>Kg</td>
+            <tr>
+                <td><?php echo $cadastro['id'] ?></td>
+                <td><?php echo $cadastro['name'] ?></td>
+                <td><?php echo $cadastro['age'] ?></td>
+                <td><?php echo $cadastro['height'] ?>m</td>
+                <td><?php echo $cadastro['weight'] ?>Kg</td>
 
-        </tr>
+            </tr>
         <?php endforeach ?>
     </table>
 </div>

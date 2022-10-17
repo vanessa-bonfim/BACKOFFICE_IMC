@@ -28,21 +28,21 @@ if (!empty($_POST['name']) && !empty($_POST['age']) && !empty($_POST['height']) 
 }
 
 ?>
-<div class="page">    
+<div class="page">
     <form class="form" method="POST" action="<?php echo url_generate(['route' => 'user_cadastrar']); ?>">
         <div class="form-group">
             <input placeholder="Nome" type="text" name="name" require>
         </div>
         <div class="form-group">
-            
+
             <input placeholder="Idade" type="number" name="age" require>
         </div>
         <div class="form-group">
-            
+
             <input id="decimal" step="0.010" placeholder="Altura (m)" type="" name="height" require>
         </div>
         <div class="form-group">
-            
+
             <input id="decimal" step="0.010" placeholder="Peso (Kg)" type="" name="weight" require>
         </div>
         <div class="form-group">
@@ -51,7 +51,7 @@ if (!empty($_POST['name']) && !empty($_POST['age']) && !empty($_POST['height']) 
     </form>
 </div>
 <script>
-    document.getElementById("decimal").addEventListener("change", function(){
-   this.value = parseFloat(this.value).toFixed(2);
-});
+    document.getElementById("decimal").addEventListener("change", function() {
+        this.value = parseFloat(this.value).toFixed(2);
+    });
 </script>
