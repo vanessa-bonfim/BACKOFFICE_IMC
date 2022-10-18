@@ -34,17 +34,6 @@
                     </ul>
                 </div>
             </nav>
-
-            <!--  <nav class="menu flex flex-justify-space-between">
-                <ul class="flex">
-                    <li><a class="navbar-brand" href="#">
-                            <img src="" alt="Logomarca" width="30" height="24">
-                        </a>
-                    </li>
-                    <li><a href="">HOME</a></li>
-                    <li><a href="">ABOUT US</a></li>
-                </ul>
-            </nav> -->
         </div>
         <div class="slide page">
             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
